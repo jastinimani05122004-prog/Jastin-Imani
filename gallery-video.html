@@ -2,37 +2,22 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery Video</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f7f6; margin: 0; }
-        nav { background: #2c3e50; padding: 1rem; text-align: center; }
-        nav a { color: white; text-decoration: none; margin: 0 15px; }
-        .container { width: 70%; margin: 30px auto; background: white; padding: 20px; border-radius: 8px; }
-        .video-wrapper { margin-bottom: 30px; text-align: center; }
-        video, iframe { width: 100%; max-width: 700px; border-radius: 8px; border: none; }
-    </style>
 </head>
 <body>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="biodata.html">Biodata</a>
-        <a href="gallery-foto.html">Foto</a>
-        <a href="gallery-video.html">Video</a>
+        <a href="index.html">Home</a> | <a href="biodata.html">Biodata</a> | <a href="gallery-foto.html">Gallery Foto</a> | <b>Gallery Video</b>
     </nav>
+    <hr>
+    <h1>Koleksi Video</h1>
+    
+    <h3>Video Lokal</h3>
+    <video width="400" controls>
+        <source src="video-kamu.mp4" type="video/mp4">
+        Browser anda tidak mendukung tag video.
+    </video>
 
-    <div class="container">
-        <h2>Koleksi Video</h2>
-        <div class="video-wrapper">
-            <h3>Video Presentasi</h3>
-            <video controls>
-                <source src="movie.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="video-wrapper">
-            <h3>Video Referensi (YouTube)</h3>
-            <iframe height="400" src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
-        </div>
-    </div>
+    <h3>Video YouTube (Embed)</h3>
+    <iframe width="400" height="225" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
 </body>
 </html>
