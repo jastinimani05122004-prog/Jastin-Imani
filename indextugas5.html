@@ -1,261 +1,376 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rencana Kegiatan KUB Nelayan 2026</title>
-
-<style>
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-        font-family:'Segoe UI',sans-serif;
-    }
-
-    body{
-        background:#f4f7fa;
-        color:#333;
-        line-height:1.6;
-    }
-
-    header{
-        background:linear-gradient(135deg,#0066cc,#0099ff);
-        color:white;
-        padding:40px;
-        text-align:center;
-    }
-
-    header h1{
-        margin-bottom:10px;
-    }
-
-    .container{
-        width:90%;
-        max-width:1200px;
-        margin:auto;
-        padding:30px 0;
-    }
-
-    .card{
-        background:white;
-        padding:25px;
-        border-radius:12px;
-        box-shadow:0 3px 10px rgba(0,0,0,0.1);
-        margin-bottom:25px;
-    }
-
-    h2{
-        color:#0066cc;
-        margin-bottom:15px;
-    }
-
-    table{
-        width:100%;
-        border-collapse:collapse;
-        margin-top:15px;
-    }
-
-    table th{
-        background:#0066cc;
-        color:white;
-        padding:12px;
-    }
-
-    table td{
-        border:1px solid #ddd;
-        padding:10px;
-        text-align:left;
-    }
-
-    table tr:nth-child(even){
-        background:#f8f8f8;
-    }
-
-    .badge{
-        display:inline-block;
-        background:#0099ff;
-        color:white;
-        padding:5px 10px;
-        border-radius:20px;
-        font-size:12px;
-    }
-
-    footer{
-        background:#003366;
-        color:white;
-        text-align:center;
-        padding:20px;
-        margin-top:30px;
-    }
-
-    @media(max-width:768px){
-        table{
-            font-size:12px;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriks Rencana Kegiatan Kelompok (RKK) KUB Perikanan</title>
+    <style>
+        :root {
+            --primary-dark: #113f48;
+            --secondary-teal: #1e707e;
+            --accent-gold: #d4ac0d;
+            --accent-soft: #eaf2f3;
+            --text-main: #2c3e50;
+            --text-light: #ffffff;
+            --bg-canvas: #f4f7f6;
+            --border-light: #d1dcdb;
+            --color-q1: #3498db;
+            --color-q2: #2ecc71;
+            --color-q3: #e67e22;
+            --color-q4: #9b59b6;
         }
-    }
-</style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background-color: var(--bg-canvas);
+            color: var(--text-main);
+            padding: 25px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--text-light);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 4px solid var(--primary-dark);
+            padding-bottom: 20px;
+            margin-bottom: 35px;
+        }
+
+        header h1 {
+            color: var(--primary-dark);
+            font-size: 24pt;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        header h2 {
+            color: var(--secondary-teal);
+            font-size: 14pt;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #7f8c8d;
+            font-size: 10.5pt;
+            font-style: italic;
+        }
+
+        .section-title {
+            color: var(--primary-dark);
+            border-left: 6px solid var(--secondary-teal);
+            padding-left: 12px;
+            margin: 35px 0 15px 0;
+            font-size: 13pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Legend Keterangan Waktu */
+        .legend-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 9pt;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .legend-box {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+        }
+
+        /* Styling Tabel Jadwal Kerja / Gantt Chart */
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 9.5pt;
+            min-width: 900px;
+        }
+
+        th {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 12px 10px;
+            font-weight: 600;
+            border: 1px solid #1a5966;
+        }
+
+        th.left-align {
+            text-align: left;
+        }
+
+        td {
+            padding: 12px 10px;
+            border: 1px solid var(--border-light);
+            vertical-align: middle;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fcfdfe;
+        }
+
+        /* Komponen Pengisi Jadwal Triwulan */
+        .schedule-bar {
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-size: 8.5pt;
+            padding: 4px 0;
+            border-radius: 4px;
+            box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15);
+        }
+
+        .q1-active { background-color: var(--color-q1); }
+        .q2-active { background-color: var(--color-q2); }
+        .q3-active { background-color: var(--color-q3); }
+        .q4-active { background-color: var(--color-q4); }
+        
+        .empty-cell {
+            background-color: #fdfefe;
+            text-align: center;
+            color: #bdc3c7;
+        }
+
+        /* Detail Kerja Per Jurnal KUB */
+        .kub-details-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .kub-detail-card {
+            background-color: #fff;
+            border: 1px solid var(--border-light);
+            border-top: 4px solid var(--secondary-teal);
+            border-radius: 6px;
+            padding: 20px;
+        }
+
+        .kub-detail-card h3 {
+            color: var(--primary-dark);
+            font-size: 11.5pt;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .penyuluh-tag {
+            font-size: 9pt;
+            font-weight: normal;
+            color: var(--secondary-teal);
+            background: var(--accent-soft);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .task-list {
+            list-style: none;
+        }
+
+        .task-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 9.5pt;
+        }
+
+        .task-list li::before {
+            content: "➔";
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 9pt;
+            color: #95a5a6;
+            border-top: 1px solid var(--border-light);
+            padding-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
-<header>
-    <h1>RENCANA KEGIATAN KELOMPOK USAHA BERSAMA (KUB)</h1>
-    <p>Program Kerja Tahunan KUB Nelayan Berbasis Penguatan Kelembagaan dan Pemberdayaan Anggota</p>
-</header>
-
 <div class="container">
+    <header>
+        <h1>RENCANA KEGIATAN KELOMPOK (RKK)</h1>
+        <h2>Matriks Pelaksanaan Program Kerja 4 Kelompok Usaha Bersama (KUB) Pembina Perikanan</h2>
+        <p>Integrasi Sasaran Operasional Nelayan Tangkap & PUD Sesuai Jurnal Pembinaan Penyuluh Lapangan</p>
+    </header>
 
-<div class="card">
-<h2>Tujuan Program</h2>
-<ul>
-<li>Meningkatkan kapasitas SDM anggota KUB.</li>
-<li>Memperkuat administrasi dan tata kelola organisasi.</li>
-<li>Meningkatkan pendapatan dan kemandirian usaha anggota.</li>
-<li>Mengembangkan pemasaran hasil perikanan.</li>
-<li>Menjaga keberlanjutan sumber daya perikanan dan lingkungan.</li>
-</ul>
+    <h2 class="section-title">I. Timeline Eksekusi Strategis & Pembagian Waktu Kerja Kelompok</h2>
+    
+    <div class="legend-container">
+        <div class="legend-item"><div class="legend-box" style="background-color: var(--color-q1);"></div> Triwulan I (Jan-Mar)</div>
+        <div class="legend-item"><div class="legend-box" style="background-color: var(--color-q2);"></div> Triwulan II (Apr-Jun)</div>
+        <div class="legend-item"><div class="legend-box" style="background-color: var(--color-q3);"></div> Triwulan III (Jul-Sep)</div>
+        <div class="legend-item"><div class="legend-box" style="background-color: var(--color-q4);"></div> Triwulan IV (Okt-Des)</div>
+    </div>
+
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2" class="left-align" style="width: 22%;">Nama Kelompok (KUB)</th>
+                    <th rowspan="2" class="left-align" style="width: 28%;">Rencana Aksi / Target Indikator</th>
+                    <th rowspan="2" style="width: 18%;">Penanggung Jawab / Fasilitator</th>
+                    <th colspan="4">Jadwal Pelaksanaan Tahunan</th>
+                </tr>
+                <tr>
+                    <th style="width: 8%;">TW I</th>
+                    <th style="width: 8%;">TW II</th>
+                    <th style="width: 8%;">TW III</th>
+                    <th style="width: 8%;">TW IV</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2"><strong>KUB Intimung Taka</strong><br><span style="font-size: 8.5pt; color:#7f8c8d;">Bulungan, Kaltara</span></td>
+                    <td>Rembuk koordinasi berkala per bulan & optimalisasi konversi bahan bakar mesin nelayan bantuan KKP.</td>
+                    <td>Ketua KUB &<br>Hariyono, S.Pi (Penyuluh)</td>
+                    <td><div class="schedule-bar q1-active">Rutin</div></td>
+                    <td><div class="schedule-bar q2-active">Rutin</div></td>
+                    <td><div class="schedule-bar q3-active">Rutin</div></td>
+                    <td><div class="schedule-bar q4-active">Rutin</div></td>
+                </tr>
+                <tr>
+                    <td>Pelatihan Teknis Pemeliharaan/Perawatan Mesin Penggerak Utama Kapal Perikanan bersama Satminkal BPPP Bitung.</td>
+                    <td>Balai Diklat Perikanan Bitung & Pengurus KUB</td>
+                    <td class="empty-cell">-</td>
+                    <td><div class="schedule-bar q2-active">Diklat</div></td>
+                    <td class="empty-cell">-</td>
+                    <td class="empty-cell">-</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2"><strong>KUB Angsa Laut 01</strong><br><span style="font-size: 8.5pt; color:#7f8c8d;">Merauke, Papua Selatan</span></td>
+                    <td>Rembuk internal intensif (2-3x/bulan) & bimbingan teknis berkala (2x/bulan) manajemen perahu Semang bersama.</td>
+                    <td>Ketua KUB &<br>Ardin Arafah R. S., S.St.Pi</td>
+                    <td><div class="schedule-bar q1-active">Aktif</div></td>
+                    <td><div class="schedule-bar q2-active">Aktif</div></td>
+                    <td><div class="schedule-bar q3-active">Aktif</div></td>
+                    <td><div class="schedule-bar q4-active">Aktif</div></td>
+                </tr>
+                <tr>
+                    <td>Penyusunan jaringan rantai pasar kolektif komoditas ikan Gulama & Kakap untuk memutus ketergantungan tengkulak.</td>
+                    <td>Satminkal BPPP Ambon & Anggota Kelompok</td>
+                    <td class="empty-cell">-</td>
+                    <td class="empty-cell">-</td>
+                    <td><div class="schedule-bar q3-active">Riset Pasar</div></td>
+                    <td><div class="schedule-bar q4-active">Eksekusi</div></td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2"><strong>KUB Usaha Nelayan</strong><br><span style="font-size: 8.5pt; color:#7f8c8d;">Konawe, Sultra</span></td>
+                    <td>Pencatatan statistik hasil produksi tangkapan ekosistem Rawa Aopa secara individual untuk validasi omset berkala.</td>
+                    <td>Sukardiman (Ketua) &<br>Suhardin, S.ST.Pi</td>
+                    <td><div class="schedule-bar q1-active">Sensus</div></td>
+                    <td><div class="schedule-bar q2-active">Sensus</div></td>
+                    <td><div class="schedule-bar q3-active">Sensus</div></td>
+                    <td><div class="schedule-bar q4-active">Sensus</div></td>
+                </tr>
+                <tr>
+                    <td>Musyawarah sinkronisasi kebijakan konservasi Perairan Umum Daratan (PUD) bersama Kepala Desa Watusa & Tokoh.</td>
+                    <td>Kepala Desa Watusa & Pengurus KUB</td>
+                    <td class="empty-cell">-</td>
+                    <td class="empty-cell">-</td>
+                    <td><div class="schedule-bar q3-active">Rapat Desa</div></td>
+                    <td class="empty-cell">-</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2"><strong>KUB Sumber Makmur</strong><br><span style="font-size: 8.5pt; color:#7f8c8d;">Bangkalan, Jawa Timur</span></td>
+                    <td>Penguatan kelembagaan hukum pasca legalitas pengukuhan serta koordinasi bulanan iuran jaring payang bersama.</td>
+                    <td>Ketua KUB &<br>Moh. Sulton, S.Si</td>
+                    <td><div class="schedule-bar q1-active">Rembuk</div></td>
+                    <td><div class="schedule-bar q2-active">Rembuk</div></td>
+                    <td><div class="schedule-bar q3-active">Rembuk</div></td>
+                    <td><div class="schedule-bar q4-active">Rembuk</div></td>
+                </tr>
+                <tr>
+                    <td>Pengajuan proposal permohonan modernisasi armada kapal motor pesisir Klampis Timur ke Dinas Perikanan Kabupaten.</td>
+                    <td>Dinas Perikanan Bangkalan & Pembina Lapangan</td>
+                    <td><div class="schedule-bar q1-active">Pengajuan</div></td>
+                    <td class="empty-cell">-</td>
+                    <td class="empty-cell">-</td>
+                    <td><div class="schedule-bar q4-active">Verifikasi</div></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2 class="section-title">II. Jabaran Target & Sasaran Operasional Rencana Aksi</h2>
+    
+    <div class="kub-details-grid">
+        <div class="kub-detail-card">
+            <h3>1. KUB Intimung Taka (Delta Sesayap / Laut Sulawesi) <span class="penyuluh-tag">Fasilitator: Hariyono, S.Pi</span></h3>
+            <ul class="task-list">
+                <li><strong>Target Jangka Pendek:</strong> Memastikan seluruh unit mesin hasil program bantuan konversi BBM ke BBG dari KKP terawat dengan baik melalui pengawasan terjadwal setiap akhir bulan.</li>
+                <li><strong>Pengembangan Kompetensi:</strong> Mengirimkan minimal 5 orang perwakilan nelayan muda anggota untuk mengikuti workshop lanjutan penanganan mutu ikan di kapal bersama tim instruktur Satminkal BPPP Bitung.</li>
+            </ul>
+        </div>
+
+        <div class="kub-detail-card">
+            <h3>2. KUB Angsa Laut 01 (Pesisir Samkai Merauke) <span class="penyuluh-tag">Fasilitator: Ardin Arafah R. S., S.St.Pi</span></h3>
+            <ul class="task-list">
+                <li><strong>Optimalisasi Operasional:</strong> Mengatur pembagian jadwal melaut mingguan yang adil untuk armada Perahu Semang 15 PK agar seluruh 11 anggota mendapatkan hak pemanfaatan sarana yang berimbang.</li>
+                <li><strong>Manajemen Finansial Pasar:</strong> Membangun kesepakatan harga batas bawah penjualan gelembung ikan (fish maw) Gulama guna meminimalkan kerugian akibat fluktuasi pasar bebas perairan selatan Papua.</li>
+            </ul>
+        </div>
+
+        <div class="kub-detail-card">
+            <h3>3. KUB Usaha Nelayan (Ekosistem Rawa Watusa) <span class="penyuluh-tag">Fasilitator: Suhardin, S.ST.Pi</span></h3>
+            <ul class="task-list">
+                <li><strong>Penguatan Data Kelompok:</strong> Mewajibkan sistem buku log sederhana (logbook) guna mendata pergerakan tonase ikan rawa air tawar tahunan anggota, demi tercapainya target kolektif >10 Ton per tahun.</li>
+                <li><strong>Aksi Lingkungan Mandiri:</strong> Melakukan patroli pencegahan penangkapan destruktif (destructive fishing) seperti penggunaan alat setrum/racun di area perairan umum darat penyangga Rawa Aopa.</li>
+            </ul>
+        </div>
+
+        <div class="kub-detail-card">
+            <h3>4. KUB Sumber Makmur (Pesisir Klampis Bangkalan) <span class="penyuluh-tag">Fasilitator: Moh. Sulton, S.Si</span></h3>
+            <ul class="task-list">
+                <li><strong>Advokasi Sarana Kelompok:</strong> Mengawal berkas usulan modernisasi jaring payang pesisir ke dinas terkait agar kelompok nelayan di Madura ini memiliki posisi tawar kuat dalam mengakses dana hibah daerah.</li>
+                <li><strong>Konsolidasi Bulanan:</strong> Menyelenggarakan evaluasi teknis operasional mingguan pasca penangkapan, mencakup bagi hasil keuntungan berkala dan perbaikan jaring yang rusak secara gotong royong.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Dokumen Perencanaan Kelembagaan Pokkan Perikanan Tangkap - Kementerian Kelautan dan Perikanan RI.</p>
+    </footer>
 </div>
 
-<div class="card">
-<h2>Prioritas Strategis KUB</h2>
-
-<p><span class="badge">Kelembagaan</span>
-Penguatan organisasi, AD/ART, dan rencana usaha bersama.</p><br>
-
-<p><span class="badge">SDM</span>
-Pelatihan teknis, manajemen usaha, dan kepemimpinan.</p><br>
-
-<p><span class="badge">Ekonomi</span>
-Pengembangan modal, simpan pinjam, dan pemasaran.</p><br>
-
-<p><span class="badge">Lingkungan</span>
-Pemanfaatan sumber daya perikanan yang berkelanjutan.</p>
-</div>
-
-<div class="card">
-<h2>Tabel Rencana Kegiatan Tahunan</h2>
-
-<table>
-<tr>
-<th>No</th>
-<th>Kegiatan</th>
-<th>Tujuan</th>
-<th>Waktu</th>
-<th>Indikator Keberhasilan</th>
-<th>Penanggung Jawab</th>
-</tr>
-
-<tr>
-<td>1</td>
-<td>Penyusunan AD/ART dan RUB</td>
-<td>Memperkuat kelembagaan KUB</td>
-<td>Januari</td>
-<td>Dokumen AD/ART dan RUB tersedia</td>
-<td>Ketua KUB</td>
-</tr>
-
-<tr>
-<td>2</td>
-<td>Pelatihan Administrasi Kelompok</td>
-<td>Tertib administrasi</td>
-<td>Februari</td>
-<td>Buku kas, notulen, inventaris aktif digunakan</td>
-<td>Sekretaris</td>
-</tr>
-
-<tr>
-<td>3</td>
-<td>Pelatihan Kepemimpinan dan SDM</td>
-<td>Meningkatkan kapasitas anggota</td>
-<td>Maret</td>
-<td>80% anggota mengikuti pelatihan</td>
-<td>Pengurus</td>
-</tr>
-
-<tr>
-<td>4</td>
-<td>Pelatihan Teknologi Penangkapan Ikan</td>
-<td>Meningkatkan produktivitas</td>
-<td>April</td>
-<td>Efisiensi operasi penangkapan meningkat</td>
-<td>Penyuluh Perikanan</td>
-</tr>
-
-<tr>
-<td>5</td>
-<td>Pembentukan Unit Simpan Pinjam</td>
-<td>Memperkuat permodalan</td>
-<td>Mei</td>
-<td>Dana bergulir berjalan</td>
-<td>Bendahara</td>
-</tr>
-
-<tr>
-<td>6</td>
-<td>Pelatihan Pemasaran Digital</td>
-<td>Memperluas pasar</td>
-<td>Juni</td>
-<td>Media pemasaran online aktif</td>
-<td>Tim Usaha</td>
-</tr>
-
-<tr>
-<td>7</td>
-<td>Monitoring Omzet dan Keuangan</td>
-<td>Meningkatkan transparansi</td>
-<td>Juli</td>
-<td>Laporan keuangan semester tersedia</td>
-<td>Bendahara</td>
-</tr>
-
-<tr>
-<td>8</td>
-<td>Aksi Bersih Pantai dan Konservasi</td>
-<td>Menjaga lingkungan pesisir</td>
-<td>Agustus</td>
-<td>Kegiatan konservasi terlaksana</td>
-<td>Seluruh Anggota</td>
-</tr>
-
-<tr>
-<td>9</td>
-<td>Evaluasi Kinerja Kelompok</td>
-<td>Mengukur capaian program</td>
-<td>September</td>
-<td>Laporan evaluasi tersedia</td>
-<td>Pengurus</td>
-</tr>
-
-<tr>
-<td>10</td>
-<td>Pelatihan Diversifikasi Produk Perikanan</td>
-<td>Menambah nilai jual produk</td>
-<td>Oktober</td>
-<td>Produk olahan baru dihasilkan</td>
-<td>Tim Produksi</td>
-</tr>
-
-<tr>
-<td>11</td>
-<td>Penyusunan Program Kerja Tahun Berikutnya</td>
-<td>Perencanaan berkelanjutan</td>
-<td>November</td>
-<td>Program kerja tersusun</td>
-<td>Pengurus</td>
-</tr>
-
-<tr>
-<td>12</td>
-<td>Rapat Pertanggungjawaban Tahunan</td>
-<td>Transparansi organisasi</td>
-<td>Desember</td>
-<td>Laporan disahkan anggota</td>
-<td>Ketua dan Bendahara</td>
-</tr>
-
-</table>
-
-</div>
-
-<div class="card">
-<h2>Indikator Keberhasilan KUB</h2
+</body>
+</html>
