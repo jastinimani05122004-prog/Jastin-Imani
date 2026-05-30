@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rencana Kegiatan KUB Nelayan 2026</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:'Segoe UI',sans-serif;
+    }
+
+    body{
+        background:#f4f7fa;
+        color:#333;
+        line-height:1.6;
+    }
+
+    header{
+        background:linear-gradient(135deg,#0066cc,#0099ff);
+        color:white;
+        padding:40px;
+        text-align:center;
+    }
+
+    header h1{
+        margin-bottom:10px;
+    }
+
+    .container{
+        width:90%;
+        max-width:1200px;
+        margin:auto;
+        padding:30px 0;
+    }
+
+    .card{
+        background:white;
+        padding:25px;
+        border-radius:12px;
+        box-shadow:0 3px 10px rgba(0,0,0,0.1);
+        margin-bottom:25px;
+    }
+
+    h2{
+        color:#0066cc;
+        margin-bottom:15px;
+    }
+
+    table{
+        width:100%;
+        border-collapse:collapse;
+        margin-top:15px;
+    }
+
+    table th{
+        background:#0066cc;
+        color:white;
+        padding:12px;
+    }
+
+    table td{
+        border:1px solid #ddd;
+        padding:10px;
+        text-align:left;
+    }
+
+    table tr:nth-child(even){
+        background:#f8f8f8;
+    }
+
+    .badge{
+        display:inline-block;
+        background:#0099ff;
+        color:white;
+        padding:5px 10px;
+        border-radius:20px;
+        font-size:12px;
+    }
+
+    footer{
+        background:#003366;
+        color:white;
+        text-align:center;
+        padding:20px;
+        margin-top:30px;
+    }
+
+    @media(max-width:768px){
+        table{
+            font-size:12px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>RENCANA KEGIATAN KELOMPOK USAHA BERSAMA (KUB)</h1>
+    <p>Program Kerja Tahunan KUB Nelayan Berbasis Penguatan Kelembagaan dan Pemberdayaan Anggota</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+<h2>Tujuan Program</h2>
+<ul>
+<li>Meningkatkan kapasitas SDM anggota KUB.</li>
+<li>Memperkuat administrasi dan tata kelola organisasi.</li>
+<li>Meningkatkan pendapatan dan kemandirian usaha anggota.</li>
+<li>Mengembangkan pemasaran hasil perikanan.</li>
+<li>Menjaga keberlanjutan sumber daya perikanan dan lingkungan.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Prioritas Strategis KUB</h2>
+
+<p><span class="badge">Kelembagaan</span>
+Penguatan organisasi, AD/ART, dan rencana usaha bersama.</p><br>
+
+<p><span class="badge">SDM</span>
+Pelatihan teknis, manajemen usaha, dan kepemimpinan.</p><br>
+
+<p><span class="badge">Ekonomi</span>
+Pengembangan modal, simpan pinjam, dan pemasaran.</p><br>
+
+<p><span class="badge">Lingkungan</span>
+Pemanfaatan sumber daya perikanan yang berkelanjutan.</p>
+</div>
+
+<div class="card">
+<h2>Tabel Rencana Kegiatan Tahunan</h2>
+
+<table>
+<tr>
+<th>No</th>
+<th>Kegiatan</th>
+<th>Tujuan</th>
+<th>Waktu</th>
+<th>Indikator Keberhasilan</th>
+<th>Penanggung Jawab</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Penyusunan AD/ART dan RUB</td>
+<td>Memperkuat kelembagaan KUB</td>
+<td>Januari</td>
+<td>Dokumen AD/ART dan RUB tersedia</td>
+<td>Ketua KUB</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Pelatihan Administrasi Kelompok</td>
+<td>Tertib administrasi</td>
+<td>Februari</td>
+<td>Buku kas, notulen, inventaris aktif digunakan</td>
+<td>Sekretaris</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Pelatihan Kepemimpinan dan SDM</td>
+<td>Meningkatkan kapasitas anggota</td>
+<td>Maret</td>
+<td>80% anggota mengikuti pelatihan</td>
+<td>Pengurus</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>Pelatihan Teknologi Penangkapan Ikan</td>
+<td>Meningkatkan produktivitas</td>
+<td>April</td>
+<td>Efisiensi operasi penangkapan meningkat</td>
+<td>Penyuluh Perikanan</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>Pembentukan Unit Simpan Pinjam</td>
+<td>Memperkuat permodalan</td>
+<td>Mei</td>
+<td>Dana bergulir berjalan</td>
+<td>Bendahara</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>Pelatihan Pemasaran Digital</td>
+<td>Memperluas pasar</td>
+<td>Juni</td>
+<td>Media pemasaran online aktif</td>
+<td>Tim Usaha</td>
+</tr>
+
+<tr>
+<td>7</td>
+<td>Monitoring Omzet dan Keuangan</td>
+<td>Meningkatkan transparansi</td>
+<td>Juli</td>
+<td>Laporan keuangan semester tersedia</td>
+<td>Bendahara</td>
+</tr>
+
+<tr>
+<td>8</td>
+<td>Aksi Bersih Pantai dan Konservasi</td>
+<td>Menjaga lingkungan pesisir</td>
+<td>Agustus</td>
+<td>Kegiatan konservasi terlaksana</td>
+<td>Seluruh Anggota</td>
+</tr>
+
+<tr>
+<td>9</td>
+<td>Evaluasi Kinerja Kelompok</td>
+<td>Mengukur capaian program</td>
+<td>September</td>
+<td>Laporan evaluasi tersedia</td>
+<td>Pengurus</td>
+</tr>
+
+<tr>
+<td>10</td>
+<td>Pelatihan Diversifikasi Produk Perikanan</td>
+<td>Menambah nilai jual produk</td>
+<td>Oktober</td>
+<td>Produk olahan baru dihasilkan</td>
+<td>Tim Produksi</td>
+</tr>
+
+<tr>
+<td>11</td>
+<td>Penyusunan Program Kerja Tahun Berikutnya</td>
+<td>Perencanaan berkelanjutan</td>
+<td>November</td>
+<td>Program kerja tersusun</td>
+<td>Pengurus</td>
+</tr>
+
+<tr>
+<td>12</td>
+<td>Rapat Pertanggungjawaban Tahunan</td>
+<td>Transparansi organisasi</td>
+<td>Desember</td>
+<td>Laporan disahkan anggota</td>
+<td>Ketua dan Bendahara</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="card">
+<h2>Indikator Keberhasilan KUB</h2
