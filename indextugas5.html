@@ -14,7 +14,7 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Memberikan efek scroll yang halus saat navigasi diklik */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -58,7 +58,7 @@ nav a:hover {
 
 section {
     padding: 30px 20px;
-    scroll-margin-top: 100px; /* Jarak aman agar judul tidak tertutup header saat discroll */
+    scroll-margin-top: 100px;
 }
 
 .container {
@@ -90,6 +90,11 @@ iframe {
     min-height: 1200px; 
 }
 
+/* Tinggi disesuaikan khusus untuk Form Kepuasan yang panjang */
+.kepuasan-frame {
+    min-height: 3900px; 
+}
+
 .sheet-frame {
     min-height: 700px;
 }
@@ -119,6 +124,10 @@ footer {
 
     .form-frame {
         min-height: 1400px;
+    }
+
+    .kepuasan-frame {
+        min-height: 4100px; /* Sedikit lebih tinggi di mobile karena layout form merapat ke bawah */
     }
 }
 </style>
@@ -156,7 +165,7 @@ footer {
         <div class="card">
             <h2>Form Tingkat Kepuasan</h2>
             <iframe 
-                class="form-frame" 
+                class="kepuasan-frame" 
                 src="https://docs.google.com/forms/d/e/1FAIpQLScgxs1JEF_OuoX9NfXU6STwdTfbVMdbA8vu_qw31UuFM_362g/viewform?embedded=true">
                 Memuat…
             </iframe>
