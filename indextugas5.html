@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard Integrasi & Beranda</title>
+<title>Dashboard Form, Data & Looker Studio</title>
 <style>
     * {
         margin: 0;
@@ -11,173 +11,120 @@
         box-sizing: border-box;
         font-family: Arial, Helvetica, sans-serif;
     }
-
     body {
         background: #f4f6f9;
-        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        padding-bottom: 50px;
+        gap: 40px; /* Jarak antar widget */
     }
-
-    /* Header Sticky dengan tombol Beranda */
-    header {
+    
+    /* Navbar / Tombol Beranda Sticky */
+    .top-bar {
+        width: 100%;
         background: #0f172a;
-        color: white;
         padding: 15px 20px;
         position: sticky;
         top: 0;
         z-index: 1000;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        justify-content: flex-start;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-
-    header h1 {
-        font-size: 1.4rem;
-    }
-
-    /* Desain Tombol Kembali ke Beranda */
-    .btn-beranda {
+    .back-btn {
         text-decoration: none;
         color: white;
-        background: #ea580c; /* Warna Oranye Terang agar kontras */
+        background: #2563eb;
         padding: 10px 20px;
         border-radius: 8px;
         font-weight: bold;
-        transition: background 0.3s ease, transform 0.2s ease;
+        font-size: 14px;
+        transition: background 0.3s ease;
         display: inline-flex;
         align-items: center;
         gap: 8px;
     }
-
-    .btn-beranda:hover {
-        background: #c2410c;
-        transform: translateY(-2px);
+    .back-btn:hover {
+        background: #1d4ed8;
     }
 
-    .btn-beranda:active {
-        transform: translateY(0);
-    }
-
-    /* Container Utama untuk Konten */
-    .main-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 40px 20px;
-        gap: 40px; /* Jarak antar widget */
-        max-width: 1200px;
-        margin: auto;
-    }
-
-    /* Pembungkus Setiap Elemen (Card) */
-    .card {
-        background: #ffffff;
-        width: 100%;
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card h2 {
-        align-self: flex-start;
-        font-size: 1.2rem;
-        color: #0f172a;
-        margin-bottom: 15px;
-        border-bottom: 2px solid #e2e8f0;
-        padding-bottom: 8px;
-        width: 100%;
-    }
-
+    /* Pengaturan Umum Iframe */
     iframe {
         border: none;
-        border-radius: 10px;
-        max-width: 100%;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         background: #ffffff;
+        max-width: 100%;
     }
-
-    /* Ukuran khusus masing-masing iframe */
+    
+    /* Ukuran Khusus Google Form */
     .form-frame {
         width: 700px;
         height: 520px;
     }
-
+    
+    /* Ukuran Khusus Google Spreadsheet */
     .sheet-frame {
         width: 100%;
+        max-width: 1000px;
         height: 600px;
     }
-
+    
+    /* Ukuran Khusus Looker Studio */
     .looker-frame {
         width: 100%;
+        max-width: 1000px;
         height: 750px;
     }
 
-    /* Responsif untuk perangkat Mobile */
-    @media(max-width: 768px) {
-        header {
-            flex-direction: column;
-            gap: 12px;
-            text-align: center;
+    /* Responsif untuk Smartphone */
+    @media (max-width: 768px) {
+        body {
+            padding: 0 10px 40px 10px;
+            gap: 25px;
         }
-        
-        .btn-beranda {
+        .top-bar {
+            justify-content: center; /* Tombol ke tengah jika di HP */
+        }
+        .back-btn {
             width: 100%;
             justify-content: center;
-        }
-
-        .form-frame {
-            width: 100%;
-            height: 600px; /* Lebih tinggi di mobile karena layout form merapat kebawah */
         }
     }
 </style>
 </head>
 <body>
 
-    <header>
-        <h1>Dashboard Data & Formulir</h1>
-        <a href="https://faroukmuhamad-gif.github.io/DEMO-TUGAS/" class="btn-beranda">
-            <span>←</span> Kembali ke Beranda
+    <div class="top-bar">
+        <a href="https://faroukmuhamad-gif.github.io/DEMO-TUGAS/" class="back-btn">
+            &larr; Kembali ke Beranda
         </a>
-    </header>
-
-    <div class="main-container">
-
-        <div class="card">
-            <h2>Formulir Tingkat Kepuasan</h2>
-            <iframe 
-                class="form-frame"
-                src="https://docs.google.com/forms/d/e/1FAIpQLScqIsQeHb8affnSnDqXkjUtaH9vui0cHv8vW2GdwnEsf7InTg/viewform?embedded=true" 
-                frameborder="0" 
-                marginheight="0" 
-                marginwidth="0">
-                Memuat…
-            </iframe>
-        </div>
-
-        <div class="card">
-            <h2>Sajian Data Spreadsheet</h2>
-            <iframe 
-                class="sheet-frame"
-                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT8PtlC-_R_p6oS449S86IuJYd4xUi604fAd889KrX4dH0G9eytvrJdscKPs_ypw5CXvNVPuma8fpvo/pubhtml?widget=true&amp;headers=false">
-                Memuat…
-            </iframe>
-        </div>
-
-        <div class="card">
-            <h2>Dashboard Looker Studio</h2>
-            <iframe 
-                class="looker-frame"
-                src="https://datastudio.google.com/embed/reporting/bac02107-99d8-4b8c-ae55-88e166afa4fa"
-                allowfullscreen
-                sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
-                Memuat…
-            </iframe>
-        </div>
-
     </div>
+
+    <iframe 
+        class="form-frame"
+        src="https://docs.google.com/forms/d/e/1FAIpQLScqIsQeHb8affnSnDqXkjUtaH9vui0cHv8vW2GdwnEsf7InTg/viewform?embedded=true" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0">
+        Memuat…
+    </iframe>
+
+    <iframe 
+        class="sheet-frame"
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT8PtlC-_R_p6oS449S86IuJYd4xUi604fAd889KrX4dH0G9eytvrJdscKPs_ypw5CXvNVPuma8fpvo/pubhtml?widget=true&amp;headers=false">
+        Memuat…
+    </iframe>
+
+    <iframe 
+        class="looker-frame"
+        src="https://datastudio.google.com/embed/reporting/bac02107-99d8-4b8c-ae55-88e166afa4fa/page/page_12345"
+        allowfullscreen
+        sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+        Memuat…
+    </iframe>
 
 </body>
 </html>
