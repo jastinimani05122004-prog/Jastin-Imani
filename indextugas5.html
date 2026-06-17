@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Form & Sajian Data Spreadsheet</title>
+<title>Form, Spreadsheet & Looker Studio</title>
 <style>
     * {
         margin: 0;
@@ -17,7 +17,7 @@
         align-items: center;
         min-height: 100vh;
         padding: 40px 20px;
-        gap: 30px; /* Jarak antara Form dan Spreadsheet */
+        gap: 40px; /* Jarak antar setiap widget */
     }
     iframe {
         border: none;
@@ -26,16 +26,22 @@
         background: #ffffff;
         max-width: 100%;
     }
-    /* Pengaturan ukuran khusus Google Form */
+    /* Ukuran khusus Google Form */
     .form-frame {
         width: 700px;
         height: 520px;
     }
-    /* Pengaturan ukuran khusus Google Spreadsheet agar lebih luas */
+    /* Ukuran khusus Google Spreadsheet */
     .sheet-frame {
         width: 100%;
         max-width: 1000px;
         height: 600px;
+    }
+    /* Ukuran khusus Looker Studio Dashboard */
+    .looker-frame {
+        width: 100%;
+        max-width: 1000px;
+        height: 750px;
     }
 </style>
 </head>
@@ -53,6 +59,14 @@
     <iframe 
         class="sheet-frame"
         src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT8PtlC-_R_p6oS449S86IuJYd4xUi604fAd889KrX4dH0G9eytvrJdscKPs_ypw5CXvNVPuma8fpvo/pubhtml?widget=true&amp;headers=false">
+        Memuat…
+    </iframe>
+
+    <iframe 
+        class="looker-frame"
+        src="https://datastudio.google.com/embed/reporting/bac02107-99d8-4b8c-ae55-88e166afa4fa"
+        allowfullscreen
+        sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
         Memuat…
     </iframe>
 
