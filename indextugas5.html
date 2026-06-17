@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Form Tingkat Kepuasan</title>
+<title>Form & Sajian Data Spreadsheet</title>
 <style>
     * {
         margin: 0;
@@ -13,28 +13,46 @@
     body {
         background: #f4f6f9;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
         min-height: 100vh;
-        padding: 20px;
+        padding: 40px 20px;
+        gap: 30px; /* Jarak antara Form dan Spreadsheet */
     }
     iframe {
         border: none;
         border-radius: 15px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        background: #ffffff;
         max-width: 100%;
+    }
+    /* Pengaturan ukuran khusus Google Form */
+    .form-frame {
+        width: 700px;
+        height: 520px;
+    }
+    /* Pengaturan ukuran khusus Google Spreadsheet agar lebih luas */
+    .sheet-frame {
+        width: 100%;
+        max-width: 1000px;
+        height: 600px;
     }
 </style>
 </head>
 <body>
 
     <iframe 
+        class="form-frame"
         src="https://docs.google.com/forms/d/e/1FAIpQLScqIsQeHb8affnSnDqXkjUtaH9vui0cHv8vW2GdwnEsf7InTg/viewform?embedded=true" 
-        width="700" 
-        height="520" 
         frameborder="0" 
         marginheight="0" 
         marginwidth="0">
+        Memuat…
+    </iframe>
+
+    <iframe 
+        class="sheet-frame"
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT8PtlC-_R_p6oS449S86IuJYd4xUi604fAd889KrX4dH0G9eytvrJdscKPs_ypw5CXvNVPuma8fpvo/pubhtml?widget=true&amp;headers=false">
         Memuat…
     </iframe>
 
