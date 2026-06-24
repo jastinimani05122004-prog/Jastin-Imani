@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
   <style>
-    /* Variabel CSS Kelompok */
     :root {
       --bg: #f4f7f6;
       --card: #ffffff;
@@ -31,97 +30,256 @@
     
     body {
       font-family: 'Poppins', sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(26,188,156,.10), transparent 30%),
-        radial-gradient(circle at right top, rgba(52,152,219,.09), transparent 26%),
-        var(--bg);
+      background: radial-gradient(circle at top left, rgba(26,188,156,.10), transparent 30%),
+                  radial-gradient(circle at right top, rgba(52,152,219,.09), transparent 26%),
+                  var(--bg);
       color: var(--text);
       overflow-x: hidden;
     }
     
     .layout { display: flex; min-height: 100vh; }
     
-    /* Tombol Mobile Toggle */
     .mobile-toggle {
-      display: none;
-      position: fixed;
-      top: 12px;
-      left: 12px;
-      z-index: 60;
-      width: 46px;
-      height: 46px;
-      border: none;
-      border-radius: 14px;
-      background: var(--sidebar-dark);
-      color: #fff;
-      box-shadow: var(--shadow);
-      cursor: pointer;
-      align-items: center;
-      justify-content: center;
+      display: none; position: fixed; top: 12px; left: 12px; z-index: 60;
+      width: 46px; height: 46px; border: none; border-radius: 14px;
+      background: var(--sidebar-dark); color: #fff; cursor: pointer;
+      align-items: center; justify-content: center;
     }
     
-    /* Sidebar */
     .sidebar {
-      width: var(--sidebar-c);
-      background: linear-gradient(180deg, var(--sidebar) 0%, #233140 100%);
-      color: #ecf0f1;
-      position: fixed;
-      inset: 0 auto 0 0;
-      z-index: 50;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      transition: transform .3s ease, width .3s ease;
+      width: var(--sidebar-c); background: linear-gradient(180deg, var(--sidebar) 0%, #233140 100%);
+      color: #ecf0f1; position: fixed; inset: 0 auto 0 0; z-index: 50;
+      box-shadow: var(--shadow); overflow: hidden; transition: .3s ease;
     }
-    
-    .sidebar.open,
-    .sidebar:hover { width: var(--sidebar-w); }
+    .sidebar.open, .sidebar:hover { width: var(--sidebar-w); }
     
     .brand {
-      height: 76px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 0 18px;
-      background: var(--sidebar-dark);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      white-space: nowrap;
+      height: 76px; display: flex; align-items: center; gap: 14px; padding: 0 18px;
+      background: var(--sidebar-dark); border-bottom: 1px solid rgba(255,255,255,.08); white-space: nowrap;
     }
-    
     .brand i { color: var(--primary); font-size: 24px; min-width: 28px; text-align: center; }
-    .brand h2 {
-      font-size: 16px;
-      font-weight: 700;
-      opacity: 0;
-      transition: .25s ease;
-    }
-    
-    .sidebar.open .brand h2,
-    .sidebar:hover .brand h2 { opacity: 1; }
+    .brand h2 { font-size: 16px; font-weight: 700; opacity: 0; transition: .25s ease; }
+    .sidebar.open .brand h2, .sidebar:hover .brand h2 { opacity: 1; }
     
     .sidebar-menu { list-style: none; padding: 12px 0; }
     .menu-item { margin: 6px 10px; }
-    
     .menu-toggle {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 14px;
-      border: none;
-      background: transparent;
-      color: #cbd5e1;
-      cursor: pointer;
-      border-radius: 14px;
-      transition: .25s ease;
-      font: inherit;
-      text-align: left;
+      width: 100%; display: flex; align-items: center; gap: 14px; padding: 14px;
+      border: none; background: transparent; color: #cbd5e1; cursor: pointer;
+      border-radius: 14px; transition: .25s ease; font: inherit; text-align: left;
     }
-    
     .menu-toggle i { width: 28px; text-align: center; font-size: 18px; }
     .menu-label { opacity: 0; transition: .25s ease; white-space: nowrap; font-size: 14px; font-weight: 500; }
+    .sidebar.open .menu-label, .sidebar:hover .menu-label { opacity: 1; }
+    .menu-toggle:hover, .menu-toggle.active { background: rgba(255,255,255,.08); color: #fff; }
     
-    .sidebar.open .menu-label,
-    .sidebar:hover .menu-label { opacity: 1; }
+    .main {
+      margin-left: var(--sidebar-c); width: calc(100% - var(--sidebar-c));
+      padding: 20px; transition: .3s ease;
+    }
+    .sidebar.open ~ .main, .sidebar:hover ~ .main {
+      margin-left: var(--sidebar-w); width: calc(100% - var(--sidebar-w));
+    }
     
-    .menu-toggle:hover,
-    .menu-toggle.active { background: rgba(255,255,255,.08
+    .topbar {
+      background: rgba(255,255,255,.72); backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.7); border-radius: 22px;
+      padding: 18px 20px; margin-bottom: 18px; display: flex;
+      justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+    }
+    .topbar h1 { font-size: 22px; color: #1f2d3d; margin-bottom: 4px; }
+    .topbar p { color: var(--muted); font-size: 13px; }
+    
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px;
+      border-radius: 999px; background: #2563eb; color: #fff; border: none;
+      font-weight: 500; font-size: 13px; text-decoration: none; transition: .3s ease;
+    }
+    .pill:hover { background: #1d4ed8; }
+    
+    .section { display: none; animation: fadeIn .35s ease; }
+    .section.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    
+    .card {
+      background: var(--card); border-radius: var(--radius); padding: 20px;
+      border: 1px solid rgba(255,255,255,.6); margin-bottom: 18px; box-shadow: var(--shadow);
+    }
+    .section-title { font-size: 20px; margin-bottom: 12px; color: #213547; }
+    .section-desc { color: var(--muted); margin-bottom: 16px; font-size: 14px; }
+    
+    .tabs { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+    .tab-btn {
+      border: none; background: #eef4f6; color: #34495e; padding: 10px 14px;
+      border-radius: 999px; cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 500; transition: .25s ease;
+    }
+    .tab-btn.active, .tab-btn:hover { background: var(--primary); color: #fff; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    
+    .iframe-wrapper {
+      width: 100%; background: #ffffff; border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    iframe { width: 100%; border: none; display: block; background: #ffffff; }
+    
+    .form-frame { height: 750px; } 
+    .sheet-frame { height: 650px; } 
+    .looker-frame { height: 800px; }
+
+    @media (max-width: 768px) {
+      .mobile-toggle { display: flex; }
+      .sidebar { transform: translateX(-100%); width: var(--sidebar-w); }
+      .sidebar.open { transform: translateX(0); }
+      .main { margin-left: 0 !important; width: 100%; padding: 12px; padding-top: 70px; }
+      .topbar { flex-direction: column; align-items: flex-start; }
+      .pill { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="mobile-toggle" id="mobileToggle">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+
+  <div class="layout">
+    <nav class="sidebar" id="sidebar">
+      <div class="brand">
+        <i class="fa-solid fa-chart-pie"></i>
+        <h2>SI-KUB Portal</h2>
+      </div>
+      <ul class="sidebar-menu">
+        <li class="menu-item">
+          <button class="menu-toggle active" data-target="dashboard-section">
+            <i class="fa-solid fa-gauge"></i> <span class="menu-label">Looker Dashboard</span>
+          </button>
+        </li>
+        <li class="menu-item">
+          <button class="menu-toggle" data-target="form-section">
+            <i class="fa-solid fa-clipboard-list"></i> <span class="menu-label">Input Form</span>
+          </button>
+        </li>
+        <li class="menu-item">
+          <button class="menu-toggle" data-target="sheet-section">
+            <i class="fa-solid fa-table"></i> <span class="menu-label">Database Sheets</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1 id="page-title">Looker Dashboard</h1>
+          <p>Sistem Informasi Terpadu KUB Kelompok</p>
+        </div>
+        <div>
+          <a href="https://faroukmuhamad-gif.github.io/DEMO-TUGAS/" class="pill">
+            <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
+          </a>
+        </div>
+      </header>
+
+      <section id="dashboard-section" class="section active">
+        <div class="card">
+          <h3 class="section-title">Visualisasi Data</h3>
+          <p class="section-desc">Pastikan Looker Studio Anda sudah disetting "Public" dan "Enable Embedding".</p>
+          <div class="iframe-wrapper">
+            <iframe class="looker-frame" loading="lazy" referrerpolicy="no-referrer"
+              src="https://datastudio.google.com/embed/reporting/bac02107-99d8-4b8c-ae55-88e166afa4fa/page/page_12345"
+              allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+            </iframe>
+          </div>
+        </div>
+      </section>
+
+      <section id="form-section" class="section">
+        <div class="card">
+          <h3 class="section-title">Formulir Penginputan</h3>
+          <div class="tabs">
+            <button class="tab-btn active" data-tab="form1">Form Pendaftaran</button>
+            <button class="tab-btn" data-tab="form2">Form Evaluasi</button>
+          </div>
+          <div id="form1" class="tab-panel active">
+            <div class="iframe-wrapper">
+              <iframe class="form-frame" loading="lazy" referrerpolicy="no-referrer"
+                src="https://docs.google.com/forms/d/e/1FAIpQLScqIsQeHb8affnSnDqXkjUtaH9vui0cHv8vW2GdwnEsf7InTg/viewform?embedded=true">
+              </iframe>
+            </div>
+          </div>
+          <div id="form2" class="tab-panel">
+            <div class="iframe-wrapper">
+              <iframe class="form-frame" loading="lazy" referrerpolicy="no-referrer"
+                src="https://docs.google.com/forms/d/e/1FAIpQLSelnVlDQLb5uVvgzBE9GW_QbA0erBmVoMJ7F1tWzHkGrp5gEg/viewform?embedded=true">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="sheet-section" class="section">
+        <div class="card">
+          <h3 class="section-title">Data Master Spreadsheet</h3>
+          <div class="tabs">
+            <button class="tab-btn active" data-tab="sheet1">Database Utama</button>
+            <button class="tab-btn" data-tab="sheet2">Database Sekunder</button>
+          </div>
+          <div id="sheet1" class="tab-panel active">
+            <div class="iframe-wrapper">
+              <iframe class="sheet-frame" loading="lazy" referrerpolicy="no-referrer"
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT8PtlC-_R_p6oS449S86IuJYd4xUi604fAd889KrX4dH0G9eytvrJdscKPs_ypw5CXvNVPuma8fpvo/pubhtml?widget=true&amp;headers=false">
+              </iframe>
+            </div>
+          </div>
+          <div id="sheet2" class="tab-panel">
+            <div class="iframe-wrapper">
+              <iframe class="sheet-frame" loading="lazy" referrerpolicy="no-referrer"
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSpgvgZ4Ptheg8N0LQfZwgkBcNcuJYlR1tzg3bS-IZkvAAu6PIMjNqLezCswdvz3qUBVy5s4dGN0XnN/pubhtml?widget=true&amp;headers=false">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    const menuToggles = document.querySelectorAll('.menu-toggle');
+    const sections = document.querySelectorAll('.section');
+    const pageTitle = document.getElementById('page-title');
+    const sidebar = document.getElementById('sidebar');
+    const mobileToggle = document.getElementById('mobileToggle');
+
+    menuToggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        menuToggles.forEach(btn => btn.classList.remove('active'));
+        toggle.classList.add('active');
+        
+        const targetSection = toggle.getAttribute('data-target');
+        sections.forEach(sec => sec.classList.remove('active'));
+        document.getElementById(targetSection).classList.add('active');
+        
+        pageTitle.innerText = toggle.querySelector('.menu-label').innerText;
+        
+        if(window.innerWidth <= 768) sidebar.classList.remove('open');
+      });
+    });
+
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const parentCard = button.closest('.card');
+        parentCard.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        parentCard.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+        
+        button.classList.add('active');
+        parentCard.querySelector(`#${button.getAttribute('data-tab')}`).classList.add('active');
+      });
+    });
+
+    mobileToggle.addEventListener('click', () => sidebar.classList.toggle('open'));
+  </script>
+</body>
+</html>
